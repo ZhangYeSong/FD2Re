@@ -1,0 +1,38 @@
+body {
+	scrollbar-face-color: #E6BD6A;
+	scrollbar-highlight-color: #F6E6AC;
+	scrollbar-shadow-color: #F6E6AC;
+	scrollbar-arrow-color: #E6BD6A;
+	scrollbar-base-color: #E6BD6A;
+	scrollbar-dark-shadow-color: #ffcc99;
+	margin: 0px;
+	background-image: url(../../images/bg-0064.gif);
+}
+body,td,th {font-size: 13px;color: #621800;}
+p {padding:4px;line-height:150%;}
+a:link {color: #E21512;text-decoration: none;}
+a:visited {color: #D20E1A;text-decoration: none;}
+a:hover {color: #621800;text-decoration: underline;}
+a:active{ color: #621800;text-decoration: none;}
+.td1{background-color:#F6E6AC;}
+.td2{border-color:#621800;}
+.td3{background-color:#E6BD6A;}
+.fon0 {color:#621800;font-size: 26px;}
+.fon1 {color:#ffba08;}
+.fon2 {color:#FFFF00;}
+.fon3 {color:#FF0000;}
+.fon4 {color:#FFFFFF;}
+.fon5 {color:#00FF00;}
+.fon6 {color:#003366;}
+.fon7 {color:#FFFFCC;}
+.hr {height:1px;border:none;border-top:1px solid #621800;}
+.cenbg {background-position:center center;background-repeat:no-repeat;}
+.rigbg {background-position:center right;background-repeat:no-repeat;}
+.rigbbg {background-position:bottom right;background-repeat:no-repeat;}
+.rigtbg {background-position:top right;background-repeat:no-repeat;}
+.hr0{ height:1px;border:none;border-top:1px dashed #621800;}
+.hr1{ height:1px;border:none;border-top:1px solid #621800;}
+.hr2{ height:3px;border:none;border-top:3px double #621800;}
+.borall{border:#621800 1px solid;border-collapse:collapse;}
+.borleft{border-left:#621800 1px solid;}
+.borright{border-right:#621800 1px solid;}

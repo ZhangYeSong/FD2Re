@@ -1,0 +1,24 @@
+body {
+	background-color: #000000;
+	margin: 0px;
+	background-image: url(../lob/images/back.gif);
+}
+body,td,th{
+	font-size: 10pt;
+	color: #FFFFFF;
+	letter-spacing: 1px;
+}
+p{line-height:140%;}
+span{line-height:140%;}
+a:link{color: #FFCD62;text-decoration: none;}
+a:visited{color: #FFCD62;text-decoration: none;}
+a:hover{color: #FF9933;text-decoration: underline;}
+a:active{color: #FF9933;text-decoration: none;}
+.sty1{text-decoration:underline;}
+.cenbg {background-position:center;background-repeat:no-repeat}
+.font1{color:#000000}
+.font2{color:#FF0000}
+.font3{font-size: 15pt;}
+.font4{color:#FFE6AA}
+.font5{color:#00FF00}
+.td001{padding: 1px;border-collapse:collapse;padding:3px;}

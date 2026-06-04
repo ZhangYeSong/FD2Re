@@ -1,0 +1,553 @@
+<html><!-- saved from url=(0032)http://43.226.154.86/teng/01.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<head>
+<title>游文戏字——小藤的游戏文学作品 </title>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<STYLE type=text/css>
+.bg {
+	BACKGROUND-POSITION: bottom canter; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-REPEAT: no-repeat
+}
+</STYLE>
+<link rel="stylesheet" href="jst.css" type="text/css">
+<script language="JavaScript">
+<!--
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+// -->
+
+function MM_timelinePlay(tmLnName, myID) { //v1.2
+  //Copyright 1997 Macromedia, Inc. All rights reserved.
+  var i,j,tmLn,props,keyFrm,sprite,numKeyFr,firstKeyFr,propNum,theObj,firstTime=false;
+  if (document.MM_Time == null) MM_initTimelines(); //if *very* 1st time
+  tmLn = document.MM_Time[tmLnName];
+  if (myID == null) { myID = ++tmLn.ID; firstTime=true;}//if new call, incr ID
+  if (myID == tmLn.ID) { //if Im newest
+    setTimeout('MM_timelinePlay("'+tmLnName+'",'+myID+')',tmLn.delay);
+    fNew = ++tmLn.curFrame;
+    for (i=0; i<tmLn.length; i++) {
+      sprite = tmLn[i];
+      if (sprite.charAt(0) == 's') {
+        if (sprite.obj) {
+          numKeyFr = sprite.keyFrames.length; firstKeyFr = sprite.keyFrames[0];
+          if (fNew >= firstKeyFr && fNew <= sprite.keyFrames[numKeyFr-1]) {//in range
+            keyFrm=1;
+            for (j=0; j<sprite.values.length; j++) {
+              props = sprite.values[j]; 
+              if (numKeyFr != props.length) {
+                if (props.prop2 == null) sprite.obj[props.prop] = props[fNew-firstKeyFr];
+                else        sprite.obj[props.prop2][props.prop] = props[fNew-firstKeyFr];
+              } else {
+                while (keyFrm<numKeyFr && fNew>=sprite.keyFrames[keyFrm]) keyFrm++;
+                if (firstTime || fNew==sprite.keyFrames[keyFrm-1]) {
+                  if (props.prop2 == null) sprite.obj[props.prop] = props[keyFrm-1];
+                  else        sprite.obj[props.prop2][props.prop] = props[keyFrm-1];
+        } } } } }
+      } else if (sprite.charAt(0)=='b' && fNew == sprite.frame) eval(sprite.value);
+      if (fNew > tmLn.lastFrame) tmLn.ID = 0;
+  } }
+}
+
+function MM_timelineGoto(tmLnName, fNew, numGotos) { //v2.0
+  //Copyright 1997 Macromedia, Inc. All rights reserved.
+  var i,j,tmLn,props,keyFrm,sprite,numKeyFr,firstKeyFr,lastKeyFr,propNum,theObj;
+  if (document.MM_Time == null) MM_initTimelines(); //if *very* 1st time
+  tmLn = document.MM_Time[tmLnName];
+  if (numGotos != null)
+    if (tmLn.gotoCount == null) tmLn.gotoCount = 1;
+    else if (tmLn.gotoCount++ >= numGotos) {tmLn.gotoCount=0; return}
+  jmpFwd = (fNew > tmLn.curFrame);
+  for (i = 0; i < tmLn.length; i++) {
+    sprite = (jmpFwd)? tmLn[i] : tmLn[(tmLn.length-1)-i]; //count bkwds if jumping back
+    if (sprite.charAt(0) == "s") {
+      numKeyFr = sprite.keyFrames.length;
+      firstKeyFr = sprite.keyFrames[0];
+      lastKeyFr = sprite.keyFrames[numKeyFr - 1];
+      if ((jmpFwd && fNew<firstKeyFr) || (!jmpFwd && lastKeyFr<fNew)) continue; //skip if untouchd
+      for (keyFrm=1; keyFrm<numKeyFr && fNew>=sprite.keyFrames[keyFrm]; keyFrm++);
+      for (j=0; j<sprite.values.length; j++) {
+        props = sprite.values[j];
+        if (numKeyFr == props.length) propNum = keyFrm-1 //keyframes only
+        else propNum = Math.min(Math.max(0,fNew-firstKeyFr),props.length-1); //or keep in legal range
+        if (sprite.obj != null) {
+          if (props.prop2 == null) sprite.obj[props.prop] = props[propNum];
+          else        sprite.obj[props.prop2][props.prop] = props[propNum];
+      } }
+    } else if (sprite.charAt(0)=='b' && fNew == sprite.frame) eval(sprite.value);
+  }
+  tmLn.curFrame = fNew;
+  if (tmLn.ID == 0) eval('MM_timelinePlay(tmLnName)');
+}
+
+function MM_initTimelines() { //v4.0
+    //MM_initTimelines() Copyright 1997 Macromedia, Inc. All rights reserved.
+    var ns = navigator.appName == "Netscape";
+    var ns4 = (ns && parseInt(navigator.appVersion) == 4);
+    var ns5 = (ns && parseInt(navigator.appVersion) > 4);
+    document.MM_Time = new Array(1);
+    document.MM_Time[0] = new Array(2);
+    document.MM_Time["Timeline1"] = document.MM_Time[0];
+    document.MM_Time[0].MM_Name = "Timeline1";
+    document.MM_Time[0].fps = 10;
+    document.MM_Time[0][0] = new String("sprite");
+    document.MM_Time[0][0].slot = 1;
+    if (ns4)
+        document.MM_Time[0][0].obj = document["Layer1"];
+    else if (ns5)
+        document.MM_Time[0][0].obj = document.getElementById("Layer1");
+    else
+        document.MM_Time[0][0].obj = document.all ? document.all["Layer1"] : null;
+    document.MM_Time[0][0].keyFrames = new Array(1, 5, 18, 22, 24, 33, 35, 37, 40, 43, 55, 61, 68, 70);
+    document.MM_Time[0][0].values = new Array(2);
+    if (ns5)
+        document.MM_Time[0][0].values[0] = new Array("74px", "77px", "81px", "86px", "95px", "101px", "108px", "115px", "123px", "132px", "141px", "151px", "160px", "168px", "176px", "183px", "190px", "196px", "205px", "209px", "211px", "213px", "220px", "227px", "228px", "230px", "231px", "232px", "233px", "234px", "235px", "235px", "235px", "228px", "221px", "218px", "214px", "208px", "201px", "194px", "192px", "189px", "181px", "175px", "169px", "162px", "155px", "147px", "138px", "129px", "120px", "112px", "104px", "97px", "90px", "82px", "76px", "72px", "69px", "67px", "65px", "63px", "63px", "63px", "63px", "64px", "64px", "65px", "69px", "75px");
+    else
+        document.MM_Time[0][0].values[0] = new Array(74,77,81,86,95,101,108,115,123,132,141,151,160,168,176,183,190,196,205,209,211,213,220,227,228,230,231,232,233,234,235,235,235,228,221,218,214,208,201,194,192,189,181,175,169,162,155,147,138,129,120,112,104,97,90,82,76,72,69,67,65,63,63,63,63,64,64,65,69,75);
+    document.MM_Time[0][0].values[0].prop = "left";
+    if (ns5)
+        document.MM_Time[0][0].values[1] = new Array("194px", "190px", "187px", "185px", "183px", "182px", "182px", "182px", "182px", "181px", "181px", "181px", "181px", "181px", "181px", "181px", "182px", "182px", "184px", "186px", "191px", "194px", "194px", "199px", "204px", "210px", "217px", "224px", "232px", "240px", "246px", "252px", "258px", "263px", "263px", "269px", "275px", "276px", "276px", "277px", "280px", "283px", "284px", "284px", "285px", "286px", "286px", "287px", "287px", "288px", "288px", "288px", "288px", "287px", "286px", "283px", "279px", "275px", "269px", "263px", "257px", "250px", "242px", "234px", "226px", "218px", "212px", "206px", "197px", "193px");
+    else
+        document.MM_Time[0][0].values[1] = new Array(194,190,187,185,183,182,182,182,182,181,181,181,181,181,181,181,182,182,184,186,191,194,194,199,204,210,217,224,232,240,246,252,258,263,263,269,275,276,276,277,280,283,284,284,285,286,286,287,287,288,288,288,288,287,286,283,279,275,269,263,257,250,242,234,226,218,212,206,197,193);
+    document.MM_Time[0][0].values[1].prop = "top";
+    if (!ns4) {
+        document.MM_Time[0][0].values[0].prop2 = "style";
+        document.MM_Time[0][0].values[1].prop2 = "style";
+    }
+    document.MM_Time[0][1] = new String("behavior");
+    document.MM_Time[0][1].frame = 71;
+    document.MM_Time[0][1].value = "MM_timelineGoto('Timeline1','1')";
+    document.MM_Time[0].lastFrame = 71;
+    for (i=0; i<document.MM_Time.length; i++) {
+        document.MM_Time[i].ID = null;
+        document.MM_Time[i].curFrame = 0;
+        document.MM_Time[i].delay = 1000/document.MM_Time[i].fps;
+    }
+}
+//-->
+</script>
+<style type="text/css">
+<!--
+.STYLE1 {font-weight: bold}
+-->
+</style>
+</HEAD>
+<BODY class=bg text=#CCCCCC vLink=#33FFCC link=#00CCFF 
+bgColor=#000000 background=picture/bj2.jpg alink="#33FFCC" onLoad="MM_timelinePlay('Timeline1')">
+<div id="Layer1" style="position:absolute; left:74px; top:194px; width:64px; height:71px; z-index:1"><img src="picture/butterfly0.gif" width="70" height="80"></div>
+<table width="595" border="0" align="center" height="82">
+  <tr>
+    <td valign="top"><img src="picture/03.jpg" width="590" height="77"></td>
+  </tr>
+</table>
+<table width="569" border="1" align="center" bordercolor="#CC9900">
+  <tr>
+    <td class="jst" height="39">我是一个对游戏文学相当感兴趣的家伙，每玩过一部游戏后都想提起笔来写些什么，兴趣使然。就这样，我的游文戏字文学库便这样产生了。这里面存放的都是我这几年来的心血作品喔！只准看，不准带走~~ 
+      都是发表在知名媒体刊物上的大作呦。 <font color="#999900">看后也欢迎各位 </font><a href="mailto:E-Mail:shorryo@sohu.com">给我写信</a></td>
+  </tr>
+</table>
+<hr width="600">
+<br>
+<table width="672" border="0" align="center" bordercolor="#999999" height="2747">
+  <tr> 
+    <td width="178" height="163" valign="top"><MARQUEE scrollAmount=1 direction=up> 
+      <table width="178" border="0">
+        <tr> 
+          <td width="172"> 
+            <p class="STYLE1"><b><font color="#CC9999" size="3">寄语在风中，</font></b></p>
+            <p class="STYLE1"><font color="#CC9999"><b><font size="3">游荡在心中；</font></b></font></p>
+            <p class="STYLE1"><font color="#CC9999" size="3"><b>是你带来云彩的明天</b></font></p>
+            <p class="STYLE1"><font color="#CC9999" size="3"><b>和那急促的脚步声</b></font></p>
+            <p class="STYLE1"><font color="#CC9999" size="3"><b>在那月光闪烁的镜中</b></font></p>
+            <p class="STYLE1"><font color="#CC9999" size="3"><b>是我颤动的心</b></font></p>
+            <p class="STYLE1"><font color="#CC9999" size="3"><b>流动的繁星是那洒落的</b></font></p>
+            <p class="STYLE1"><font color="#CC9999" size="3"><b>饱含柔情的泪珠……</b></font></p>
+          </td>
+        </tr>
+    </table>
+    </MARQUEE></td>
+    <td height="163" width="484" valign="top"> 
+      <table width="468" border="0" height="161" bordercolor="#CCCCCC" cellpadding="0" cellspacing="5">
+        <tr valign="middle"> 
+          <td height="26" bgcolor="#996666" class="jst"> 
+            <div align="center">鬼文化与恐怖游戏<br>
+              的完美结合<img src="picture/new.gif" width="28" height="11"></div>
+          </td>
+          <td bgcolor="#996666" class="jst" height="26"> 
+            <div align="center">今朝再访“仙剑”世界<img src="picture/new.gif" width="28" height="11"></div>
+          </td>
+          <td bgcolor="#996666" class="jst" height="26"> 
+            <div align="center">三国、影视、游戏<img src="picture/new.gif" width="28" height="11"></div>
+          </td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="90" class="jst"><a href="65.htm" target="_blank"><img src="picture/65.jpg" width="150" height="100" border="0"></a></td>
+          <td class="jst" height="90"><a href="66.htm" target="_blank"><img src="picture/66.jpg" width="150" height="100" border="0"></a></td>
+          <td class="jst" height="90"><a href="67.htm" target="_blank"><img src="picture/67.jpg" width="150" height="100" border="0"></a></td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="8" bgcolor="#996666" class="jst"> 
+            <div align="center">写在《云之遥》上市前</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">仙侠武幻话群妖</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">悲剧起源与中文RPG<br>
+              之悲情人物</div>
+          </td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" bgcolor="#996666" class="jst"><a href="62.htm" target="_blank"><img src="picture/62.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="63.htm" target="_blank"><img src="picture/63.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="64.htm" target="_blank"><img src="picture/64.jpg" width="150" height="100" border="0"></a></td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" bgcolor="#996666" class="jst"> 
+            <div align="center">仙音绕梁</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">古剑游记</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">笑论古剑：国产单机的春天</div>
+          </td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" bgcolor="#996666" class="jst"><a href="59.htm" target="_blank"><img src="picture/59.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="60.htm" target="_blank"><img src="picture/60.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="61.htm" target="_blank"><img src="picture/61.jpg" width="150" height="100" border="0"></a></td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" bgcolor="#996666" class="jst"> 
+            <div align="center">百兵君为贵，一剑傲群雄<br>
+            </div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">大汉天空的那一片云<br>
+            </div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">戏说太古十大神器<br>
+            </div>
+          </td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" bgcolor="#996666" class="jst"><a href="56.htm" target="_blank"><img src="picture/56.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="57.htm" target="_blank"><img src="picture/57.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="58.htm" target="_blank"><img src="picture/58.jpg" width="150" height="100" border="0"></a></td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" bgcolor="#996666" class="jst"> 
+            <div align="center">《青涩宝贝》回顾</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">《天地劫》回顾</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">古今中外话奇幻</div>
+          </td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" bgcolor="#996666" class="jst"><a href="53.htm" target="_blank"><img src="picture/53.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="54.htm" target="_blank"><img src="picture/54.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="55.htm" target="_blank"><img src="picture/55.jpg" width="150" height="100" border="0"></a></td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" bgcolor="#996666" class="jst"> 
+            <div align="center">再看《古文明霸王传》</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">回首宇峻奥汀的昨天</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">《天使帝国》系列回顾</div>
+          </td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" bgcolor="#996666" class="jst"><a href="50.htm" target="_blank"><img src="picture/50.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="51.htm" target="_blank"><img src="picture/51.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="52.htm" target="_blank"><img src="picture/52.jpg" width="150" height="100" border="0"></a></td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" bgcolor="#996666" class="jst"> 
+            <div align="center">圣女之歌</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">游戏大陆旅行手札</div>
+          </td>
+          <td width="150" bgcolor="#996666" class="jst"> 
+            <div align="center">综评《幻想三国志》系列</div>
+          </td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" bgcolor="#996666" class="jst"><a href="47.htm" target="_blank"><img src="picture/47.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="48.htm" target="_blank"><img src="picture/48.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="49.htm" target="_blank"><img src="picture/49.jpg" width="150" height="100" border="0"></a></td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" bgcolor="#996666" class="jst"> 
+            <div align="center">《幽城幻剑录》回顾</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">那些离我而去的人</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">黄金笔记</div>
+          </td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" bgcolor="#996666" class="jst"><a href="44.htm" target="_blank"><img src="picture/44.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="45.htm" target="_blank"><img src="picture/45.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="46.htm" target="_blank"><img src="picture/46.jpg" width="150" height="100" border="0"></a></td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" bgcolor="#996666" class="jst"> 
+            <div align="center">《刀剑封魔录》回顾</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">巾帼亦有三国情</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">《夜行侦探·零》回顾 </div>
+          </td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" bgcolor="#996666" class="jst"><a href="41.htm" target="_blank"><img src="picture/41.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="42.htm" target="_blank"><img src="picture/42.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="43.htm" target="_blank"><img src="picture/43.jpg" width="150" height="100" border="0"></a></td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" bgcolor="#996666" class="jst"> 
+            <div align="center">幻想三国志系列回顾</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">堕落天使回顾</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">苍浪剑赋--紫英赞歌</div>
+          </td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" bgcolor="#996666" class="jst"><a href="38.htm" target="_blank"><img src="picture/38.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="39.htm" target="_blank"><img src="picture/39.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="40.htm" target="_blank"><img src="picture/40.jpg" width="150" height="100" border="0"></a></td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" bgcolor="#996666" class="jst"> 
+            <div align="center">一份回味，一份感动</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">我的游戏世界</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">我的狐朋狗友</div>
+          </td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" bgcolor="#996666" class="jst"><a href="35.htm" target="_blank"><img src="picture/35.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="36.htm" target="_blank"><img src="picture/36.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="37.htm" target="_blank"><img src="picture/37.jpg" width="150" height="100" border="0"></a></td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" bgcolor="#996666" class="jst"> 
+            <div align="center">正气干云义为先</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">体会游戏的真谛</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">美少女梦工厂<br>
+              系列回顾</div>
+          </td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" bgcolor="#996666" class="jst"><a href="32.htm" target="_blank"><img src="picture/32.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="33.htm" target="_blank"><img src="picture/33.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="34.htm" target="_blank"><img src="picture/34.jpg" width="150" height="100" border="0"></a></td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" class="jst" bgcolor="#996666"> 
+            <div align="center">江湖恶人传</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">幻乐冥想</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">戏说炎龙</div>
+          </td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" class="jst" bgcolor="#996666"><a href="29.htm" target="_blank"><img src="picture/29.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="30.htm" target="_blank"><img src="picture/30.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666" class="jst"><a href="31.htm" target="_blank"><img src="picture/31.jpg" width="150" height="100" border="0"></a></td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" bgcolor="#996666" class="jst"> 
+            <div align="center">幻想与激情的碰撞</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">“表世界”与“里世界”的真实写照</div>
+          </td>
+          <td bgcolor="#996666" class="jst"> 
+            <div align="center">王者归来</div>
+          </td>
+        </tr>
+        <tr valign="middle"> 
+          <td valign="top" bgcolor="#996666"><a href="26.htm" target="_blank"><img src="picture/26.jpg" width="150" height="100" border="0"></a></td>
+          <td valign="top" bgcolor="#996666"><a href="27.htm" target="_blank"><img src="picture/27.jpg" width="150" height="100" border="0"></a></td>
+          <td bgcolor="#996666"><a href="28.htm" target="_blank"><img src="picture/28.jpg" width="150" height="100" border="0"></a></td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" class="jst" bgcolor="#996666"> 
+            <div align="center">在那云和山的彼端</div>
+          </td>
+          <td class="jst" bgcolor="#996666"> 
+            <div align="center">百合花瓣的余香</div>
+          </td>
+          <td class="jst" bgcolor="#996666"> 
+            <div align="center">绝代之音，心灵之声</div>
+          </td>
+        </tr>
+        <tr> 
+          <td valign="top"><a href="23.htm" target="_blank"><img src="picture/23.jpg" width="150" height="100" border="0"></a></td>
+          <td valign="top"><a href="24.htm" target="_blank"><img src="picture/24.jpg" width="150" height="100" border="0"></a></td>
+          <td><a href="25.htm" target="_blank"><img src="picture/25.jpg" width="150" height="100" border="0"></a></td>
+        </tr>
+        <tr valign="middle"> 
+          <td height="21" class="jst" bgcolor="#996666"> 
+            <div align="center">界限与情忠的深情对唱</div>
+          </td>
+          <td class="jst" bgcolor="#996666"> 
+            <div align="center">最终幻想系列回顾</div>
+          </td>
+          <td class="jst" bgcolor="#996666"> 
+            <div align="center">游戏情缘</div>
+          </td>
+        </tr>
+        <tr> 
+          <td valign="top"><a href="02.htm" target="_blank"><img src="picture/04.jpg" width="150" height="100" border="0"></a></td>
+          <td valign="top"><a href="03.htm" target="_blank"><img src="picture/05.jpg" width="150" height="100" border="0"></a></td>
+          <td><a href="04.htm" target="_blank"><img src="picture/06.jpg" width="150" height="100" border="0"></a></td>
+        </tr>
+        <tr valign="middle"> 
+          <td width="150" height="21" class="jst" bgcolor="#996666"> 
+            <div align="center">召唤兽：诸神的宠物</div>
+          </td>
+          <td width="150" height="21" class="jst" bgcolor="#996666"> 
+            <div align="center">藏在心底深处的寂静岭</div>
+          </td>
+          <td height="21" class="jst" bgcolor="#996666"> 
+            <div align="center">今朝再看双刃剑</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="150"><a href="05.htm" target="_blank"><img src="picture/07.jpg" width="150" height="100" border="0"></a></td>
+          <td width="150"><a href="06.htm" target="_blank"><img src="picture/08.jpg" width="150" height="100" border="0"></a></td>
+          <td><a href="07.htm" target="_blank"><img src="picture/09.jpg" width="150" height="100" border="0"></a></td>
+        </tr>
+        <tr valign="middle"> 
+          <td width="150" height="21" class="jst" bgcolor="#996666"> 
+            <div align="center">小雪</div>
+          </td>
+          <td width="150" height="21" class="jst" bgcolor="#996666"> 
+            <div align="center">明星志愿系列回顾</div>
+          </td>
+          <td height="21" class="jst" bgcolor="#996666"> 
+            <div align="center">梦醒时分的悸动</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="150"><a href="08.htm" target="_blank"><img src="picture/10.jpg" width="150" height="100" border="0"></a></td>
+          <td width="150"><a href="09.htm" target="_blank"><img src="picture/11.jpg" width="150" height="100" border="0"></a></td>
+          <td><a href="10.htm" target="_blank"><img src="picture/12.jpg" width="150" height="100" border="0"></a></td>
+        </tr>
+        <tr valign="middle"> 
+          <td width="150" height="21" class="jst" bgcolor="#996666"> 
+            <div align="center">观新侠客英雄传有感</div>
+          </td>
+          <td width="150" height="21" class="jst" bgcolor="#996666"> 
+            <div align="center">探访精灵的足迹</div>
+          </td>
+          <td height="21" class="jst" bgcolor="#996666"> 
+            <div align="center">玻璃镜之梦</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="150"><a href="11.htm" target="_blank"><img src="picture/13.jpg" width="150" height="100" border="0"></a></td>
+          <td width="150"><a href="12.htm" target="_blank"><img src="picture/14.jpg" width="150" height="100" border="0"></a></td>
+          <td><a href="13.htm" target="_blank"><img src="picture/15.jpg" width="150" height="100" border="0"></a></td>
+        </tr>
+        <tr valign="middle"> 
+          <td width="150" height="21" class="jst" bgcolor="#996666"> 
+            <div align="center">如忆玉儿</div>
+          </td>
+          <td width="150" height="21" class="jst" bgcolor="#996666"> 
+            <div align="center">天使的微笑</div>
+          </td>
+          <td height="21" class="jst" bgcolor="#996666"> 
+            <div align="center">岁月经典：炎龙骑士团2</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="150"><a href="14.htm" target="_blank"><img src="picture/16.jpg" width="150" height="100" border="0"></a></td>
+          <td width="150"><a href="15.htm" target="_blank"><img src="picture/17.jpg" width="150" height="100" border="0"></a></td>
+          <td><a href="16.htm" target="_blank"><img src="picture/18.jpg" width="150" height="100" border="0"></a></td>
+        </tr>
+        <tr valign="middle"> 
+          <td width="150" height="21" class="jst" bgcolor="#996666"> 
+            <div align="center">我的九月</div>
+          </td>
+          <td width="150" height="21" class="jst" bgcolor="#996666"> 
+            <div align="center">心上流年</div>
+          </td>
+          <td height="21" class="jst" bgcolor="#996666"> 
+            <div align="center">生化危机系列回顾</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="150"><a href="17.htm" target="_blank"><img src="picture/19.jpg" width="150" height="100" border="0"></a></td>
+          <td width="150"><a href="18.htm" target="_blank"><img src="picture/20.jpg" width="150" height="100" border="0"></a></td>
+          <td><a href="19.htm" target="_blank"><img src="picture/21.jpg" width="150" height="100" border="0"></a></td>
+        </tr>
+        <tr valign="middle"> 
+          <td width="150" height="21" class="jst" bgcolor="#996666"> 
+            <div align="center">新月剑痕</div>
+          </td>
+          <td width="150" height="21" class="jst" bgcolor="#996666"> 
+            <div align="center">昨日的回忆</div>
+          </td>
+          <td height="21" class="jst" bgcolor="#996666"> 
+            <div align="center">似水流年</div>
+          </td>
+        </tr>
+        <tr> 
+          <td width="150" height="8"><a href="20.htm" target="_blank"><img src="picture/12.jpg" width="150" height="100" border="0"></a></td>
+          <td width="150" height="8"><a href="21.htm" target="_blank"><img src="picture/22.jpg" width="150" height="100" border="0"></a></td>
+          <td height="8"><a href="22.htm" target="_blank"><img src="picture/05.jpg" width="150" height="100" border="0"></a></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table width="600" border="0" align="center">
+  <tr>
+    <td width="435" height="18">&nbsp;</td>
+    <td width="155" height="18"> 
+      <table width="156" border="0" bordercolor="#666666">
+        <tr>
+          <td bgcolor="#99CCFF"> 
+            <div align="center"><font color="#00FF00" size="2"><b><font color="#006600">* 
+              作品陆续整理中 *</font></b></font></div>
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

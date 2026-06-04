@@ -1,0 +1,25 @@
+body {
+	background-color:#432817;
+	margin: 0px;
+}
+html {
+	scrollbar-face-color: #917d62;
+	scrollbar-highlight-color: #240000;
+	scrollbar-shadow-color: #e9cfb5;
+	scrollbar-arrow-color: #e9cfb5;
+	scrollbar-base-color: #240000;
+	scrollbar-dark-shadow-color: #240000;
+	}
+body,td,th{
+	font-size: 13px;
+	color: #000000;
+}
+a:link{color: #e9cfb5;text-decoration: none;}
+a:visited{color: #e9cfb5;text-decoration: none;}
+a:hover{color: #240000;text-decoration: underline;}
+a:active{color: #e9cfb5;text-decoration: none;}
+p{margin: 0px;padding:4px;line-height:150%;}
+.font1{color:#FFFFFF}
+.font150{line-height:150%;}
+.font2{font-size: 15pt;}
+.td1{padding: 1px;border-collapse:collapse;padding:3px;}
