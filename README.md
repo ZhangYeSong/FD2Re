@@ -12,7 +12,7 @@
 
 - QQ群：829066411（群文件附件下载）
 - 百度网盘：https://pan.baidu.com/s/1VuyjDfgUCjPBuhszyBc0eQ?pwd=FDRE（提取码：FDRE）
-- https://drive.google.com/drive/folders/1q21Azrrep6WiGRGpDrUyCz1P0_RrBQ9a?usp=sharing
+- Google Drive：https://drive.google.com/drive/folders/1q21Azrrep6WiGRGpDrUyCz1P0_RrBQ9a?usp=sharing
 
 ## 相关链接
 

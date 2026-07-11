@@ -10,7 +10,7 @@
 
 提取码：**FDRE**
 
-### 方式三：GitHub Releases
-[点击前往 GitHub Releases 下载](https://github.com/ZhangYeSong/FD2Re/releases)
+### 方式三：Google Drive
+[点击前往 Google Drive 下载](https://drive.google.com/drive/folders/1q21Azrrep6WiGRGpDrUyCz1P0_RrBQ9a?usp=sharing)
 
 适合无法访问百度网盘的玩家。
